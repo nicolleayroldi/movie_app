@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.movies_app.model.Movie
 import com.example.movies_app.network.RetrofitClient
@@ -50,42 +51,20 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    private fun getShowDetails(showId: Int) {
-        val apiService = RetrofitClient.instance
-
-        apiService.getShowDetails(showId).enqueue(object : Callback<Movie> {
-            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
-                if (response.isSuccessful) {
-                    val showDetails = response.body()
-                    // Mostrar detalles del show
-                    Toast.makeText(this@MainActivity, "Show: ${showDetails?.name}", Toast.LENGTH_LONG).show()
-                } else {
-                    // Manejar error
-                    val errorMessage = "Error ${response.code()}: ${response.message()}"
-                    Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG).show()
-                }
-            }
-
-            override fun onFailure(call: Call<Movie>, t: Throwable) {
-                // Manejar error de red
-                Toast.makeText(this@MainActivity, "Network Error: ${t.message}", Toast.LENGTH_LONG).show()
-            }
-        })
-    }
-
     private fun setIconColor(bottomNavigationView: BottomNavigationView, selectedItemId: Int) {
+        // Cambiar dinámicamente los colores de los íconos
         for (i in 0 until bottomNavigationView.menu.size()) {
             val item = bottomNavigationView.menu.getItem(i)
             val drawable: Drawable? = item.icon
             if (drawable != null) {
-                // Cambia el color del icono seleccionado
                 val color = if (item.itemId == selectedItemId) {
-                    R.color.purple_700 // Color del icono seleccionado
+                    ContextCompat.getColor(this, R.color.purple_700) // Color seleccionado
                 } else {
-                    R.color.bottom_nav_unselected_color // Color del icono no seleccionado
+                    ContextCompat.getColor(this, R.color.bottom_nav_unselected_color) // Color no seleccionado
                 }
-                drawable.setTint(resources.getColor(color, null))
+                drawable.setTint(color)
             }
         }
     }
 }
+

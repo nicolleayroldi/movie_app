@@ -3,12 +3,13 @@
 
     <item
         android:id="@+id/navigation_peliculas"
-        android:checkable="false"
+        android:checkable="true"
         android:icon="@drawable/movie"
-        android:iconTint="#fff"
         android:title="Películas" />
+
     <item
         android:id="@+id/navigation_favoritos"
+        android:checkable="true"
         android:icon="@drawable/star"
         android:title="Favoritos" />
 </menu>

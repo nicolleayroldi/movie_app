@@ -1,5 +1,6 @@
 package com.example.movies_app
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,15 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.movies_app.model.Movie
 import android.widget.Filter
 import android.widget.Filterable
 import java.util.Locale
-import android.content.Intent
 
 class MovieAdapter(
     private var moviesList: List<Movie>,
-    private val onNoResultsCallback: (Boolean) -> Unit // Agregar callback como segundo parámetro
+    private val onNoResultsCallback: (Boolean) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(), Filterable {
 
     private var filteredMoviesList: List<Movie> = moviesList
@@ -23,8 +24,8 @@ class MovieAdapter(
     // Método para actualizar la lista de películas
     fun updateMovies(newMovies: List<Movie>) {
         moviesList = newMovies
-        filteredMoviesList = newMovies // Asegúrate de actualizar también la lista filtrada
-        notifyDataSetChanged() // Refresca la lista en el RecyclerView
+        filteredMoviesList = newMovies
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -36,12 +37,29 @@ class MovieAdapter(
         val movie = filteredMoviesList[position]
         holder.title.text = movie.name
         holder.releaseDate.text = movie.premiered
-        holder.rating.text = "Rating: ${movie.rating.average}"
 
         // Cargar la imagen con Glide
         Glide.with(holder.itemView.context)
             .load(movie.image.medium)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.poster)
+
+        // Calcular cuántas estrellas mostrar
+        val rating = movie.rating.average
+        val starCount = (rating / 2).toInt() // Divide el rating por 2 si la calificación máxima es 10
+
+        // Mostrar las estrellas
+        val stars = listOf(
+            holder.star1,
+            holder.star2,
+            holder.star3,
+            holder.star4,
+            holder.star5
+        )
+
+        for (i in stars.indices) {
+            stars[i].visibility = if (i < starCount) View.VISIBLE else View.GONE
+        }
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
@@ -67,6 +85,11 @@ class MovieAdapter(
         val title: TextView = itemView.findViewById(R.id.movie_title)
         val releaseDate: TextView = itemView.findViewById(R.id.movie_release_date)
         val rating: TextView = itemView.findViewById(R.id.movie_rating)
+        val star1: ImageView = itemView.findViewById(R.id.star_1)
+        val star2: ImageView = itemView.findViewById(R.id.star_2)
+        val star3: ImageView = itemView.findViewById(R.id.star_3)
+        val star4: ImageView = itemView.findViewById(R.id.star_4)
+        val star5: ImageView = itemView.findViewById(R.id.star_5)
     }
 
     // Implementación del método de filtrado
@@ -85,20 +108,13 @@ class MovieAdapter(
                 // Notificar si no hay resultados
                 onNoResultsCallback(filteredMoviesList.isEmpty())
 
-                val filterResults = FilterResults()
-                filterResults.values = filteredMoviesList
-                return filterResults
+                return FilterResults().apply { values = filteredMoviesList }
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                filteredMoviesList = if (results?.values != null) {
-                    results.values as List<Movie>
-                } else {
-                    emptyList()
-                }
+                filteredMoviesList = results?.values as List<Movie>
                 notifyDataSetChanged()
             }
-
         }
     }
 }
