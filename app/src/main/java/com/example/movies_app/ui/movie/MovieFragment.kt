@@ -20,7 +20,7 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener { // Impleme
     private lateinit var movieAdapter: MovieAdapter
     private lateinit var movieViewModel: MovieViewModel
     private lateinit var searchView: SearchView
-    private lateinit var noResultsText: TextView // TextView para mostrar mensaje sin resultados
+    private lateinit var noResultsText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,11 +31,11 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener { // Impleme
         // Configurar RecyclerView y Adapter
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_view_movies)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        movieAdapter = MovieAdapter(listOf(), this) // Pasar el listener al adapter
+        movieAdapter = MovieAdapter(listOf(), this)
         recyclerView.adapter = movieAdapter
 
         // Configurar TextView para mostrar mensaje sin resultados
-        noResultsText = view.findViewById(R.id.text_view_no_results) // Asegúrate de que el ID coincida con el layout
+        noResultsText = view.findViewById(R.id.text_view_no_results)
 
         // Inicializar el repositorio
         val movieRepository = MovieRepository()
@@ -67,7 +67,7 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener { // Impleme
         searchView = view.findViewById(R.id.search_view)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                return false // No se necesita hacer nada aquí
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {

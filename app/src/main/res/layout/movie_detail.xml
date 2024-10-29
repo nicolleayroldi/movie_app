@@ -20,7 +20,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/movie_poster_description" />
 
-
         <TextView
             android:id="@+id/movie_title"
             android:layout_width="0dp"
@@ -46,7 +45,6 @@
             app:layout_constraintStart_toEndOf="@id/movie_poster"
             app:layout_constraintTop_toBottomOf="@id/movie_title" />
 
-
         <TextView
             android:id="@+id/movie_release_date"
             android:layout_width="0dp"
@@ -58,6 +56,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/movie_poster"
             app:layout_constraintTop_toBottomOf="@id/release_date_label" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,6 +102,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movie_detail_genres" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </LinearLayout>

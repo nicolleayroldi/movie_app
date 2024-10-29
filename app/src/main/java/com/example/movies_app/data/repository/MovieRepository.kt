@@ -22,7 +22,7 @@ class MovieRepository {
         val response = ApiClient.apiService.searchMovies(query)
         return if (response.isSuccessful) {
             val searchResults = response.body() ?: listOf()
-            val movies = searchResults.map { it.show } // Extrae los objetos `Movie`
+            val movies = searchResults.map { it.show }
             Log.d("MovieRepository", "Found ${movies.size} movies for query: $query")
             movies
         } else {

@@ -20,7 +20,7 @@ class MovieViewModel(private val movieRepository: MovieRepository) : ViewModel()
     fun getAllMovies() {
         viewModelScope.launch {
             // Obtiene todas las películas de forma suspendida
-            _movies.value = movieRepository.getAllMovies() // Asegúrate de que esta función sea suspendida
+            _movies.value = movieRepository.getAllMovies()
         }
     }
 

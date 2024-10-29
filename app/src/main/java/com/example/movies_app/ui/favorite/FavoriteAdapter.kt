@@ -26,8 +26,7 @@ class FavoriteAdapter(private val favorites: List<Movie>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val movie = favorites[position]
         holder.movieTitle.text = movie.name
-        holder.movieReleaseDate.text = movie.premiered // Asumiendo que 'premiered' es la fecha de lanzamiento
-        // Carga la imagen del póster usando Picasso
+        holder.movieReleaseDate.text = movie.premiered
         Picasso.get().load(movie.image?.original).into(holder.moviePoster)
     }
 

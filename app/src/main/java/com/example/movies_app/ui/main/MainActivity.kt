@@ -55,9 +55,9 @@ class MainActivity : AppCompatActivity() {
             val drawable: Drawable? = item.icon
             if (drawable != null) {
                 val color = if (item.itemId == selectedItemId) {
-                    ContextCompat.getColor(this, R.color.purple_700) // Color seleccionado
+                    ContextCompat.getColor(this, R.color.purple_700)
                 } else {
-                    ContextCompat.getColor(this, R.color.bottom_nav_unselected_color) // Color no seleccionado
+                    ContextCompat.getColor(this, R.color.bottom_nav_unselected_color)
                 }
                 drawable.setTint(color)
             }

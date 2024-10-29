@@ -20,7 +20,7 @@ import com.google.gson.Gson
 class MovieDetailFragment : Fragment() {
 
     private lateinit var movie: Movie
-    private var isFavorite: Boolean = false // Estado inicial de favorito
+    private var isFavorite: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.movie_detail, container, false)
@@ -56,12 +56,12 @@ class MovieDetailFragment : Fragment() {
 
         // Comprobar y establecer el estado inicial de favorito
         isFavorite = isMovieFavorite(requireContext(), movie.id)
-        updateFavoriteIcon(favoriteButton) // Actualiza el ícono según el estado
+        updateFavoriteIcon(favoriteButton)
 
         favoriteButton.setOnClickListener {
-            isFavorite = !isFavorite // Cambiar estado de favorito
-            updateFavoriteIcon(favoriteButton) // Actualizar ícono
-            saveFavoriteState(requireContext(), movie, isFavorite) // Guardar el estado
+            isFavorite = !isFavorite
+            updateFavoriteIcon(favoriteButton)
+            saveFavoriteState(requireContext(), movie, isFavorite)
         }
 
         return view
@@ -80,13 +80,13 @@ class MovieDetailFragment : Fragment() {
         if (isFavorite) {
             val favoriteMoviesJson = sharedPreferences.getString("favorite_movies", "[]")
             val favoriteMovies = Gson().fromJson(favoriteMoviesJson, Array<Movie>::class.java).toMutableList()
-            favoriteMovies.add(movie) // Agrega la película a la lista
+            favoriteMovies.add(movie)
             editor.putString("favorite_movies", Gson().toJson(favoriteMovies))
         } else {
             // Si se quita de favoritos, elimina la película
             val favoriteMoviesJson = sharedPreferences.getString("favorite_movies", "[]")
             val favoriteMovies = Gson().fromJson(favoriteMoviesJson, Array<Movie>::class.java).toMutableList()
-            favoriteMovies.removeIf { it.id == movie.id } // Elimina la película
+            favoriteMovies.removeIf { it.id == movie.id }
             editor.putString("favorite_movies", Gson().toJson(favoriteMovies))
         }
 

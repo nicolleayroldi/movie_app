@@ -17,8 +17,8 @@ class FavoriteFragment : Fragment() {
 
     private lateinit var favoriteAdapter: FavoriteAdapter
     private lateinit var recyclerViewFavorites: RecyclerView
-    private lateinit var textViewNoFavorites: TextView // Agrega esta línea
-    private var favoriteMovies: List<Movie> = listOf() // Inicializa como una lista vacía
+    private lateinit var textViewNoFavorites: TextView
+    private var favoriteMovies: List<Movie> = listOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +40,7 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun loadFavorites() {
-        favoriteMovies = getFavoriteMovies() // Obtén la lista de películas favoritas
+        favoriteMovies = getFavoriteMovies()
 
         // Inicializa el adaptador aquí después de cargar los favoritos
         favoriteAdapter = FavoriteAdapter(favoriteMovies)
@@ -53,7 +53,7 @@ class FavoriteFragment : Fragment() {
         } else {
             textViewNoFavorites.visibility = View.GONE
             recyclerViewFavorites.visibility = View.VISIBLE
-            favoriteAdapter.notifyDataSetChanged() // Notifica que el adaptador ha cambiado
+            favoriteAdapter.notifyDataSetChanged()
         }
     }
 
