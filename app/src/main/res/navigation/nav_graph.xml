@@ -6,13 +6,13 @@
 
     <fragment
         android:id="@+id/navigation_movies"
-        android:name="com.example.movies_app.MoviesFragment"
+        android:name="com.example.movies_app.ui.movie.MovieFragment"
         android:label="Películas"
         tools:layout="@layout/fragment_movies" />
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.example.movies_app.FavoritesFragment"
+        android:name="com.example.movies_app.ui.favorite.FavoriteFragment"
         android:label="Favoritos"
         tools:layout="@layout/fragment_favorites" />
 </navigation>

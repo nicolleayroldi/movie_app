@@ -70,6 +70,11 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.google.code.gson:gson:2.8.5")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation ("com.squareup.picasso:picasso:2.8")
+
 
     // Dependencias de AppCompat y Glide
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -80,6 +85,12 @@ dependencies {
     implementation("androidx.room:room-runtime:2.5.0")
     kapt("androidx.room:room-compiler:2.5.0")
     implementation("androidx.room:room-ktx:2.5.0")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
 
     // Para pruebas
     testImplementation("junit:junit:4.13.2")

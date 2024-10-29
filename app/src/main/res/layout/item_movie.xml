@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,7 +17,8 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/movie_poster_description" />
 
     <TextView
         android:id="@+id/movie_title"
@@ -36,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:text="Fecha de lanzamiento:"
+        android:text="@string/release_date_label"
         android:textColor="#666"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,30 +83,35 @@
             android:id="@+id/star_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/start_yelow" />
+            android:src="@drawable/start_yelow"
+            android:contentDescription="@string/star_1_description" />
 
         <ImageView
             android:id="@+id/star_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/start_yelow" />
+            android:src="@drawable/start_yelow"
+            android:contentDescription="@string/star_2_description" />
 
         <ImageView
             android:id="@+id/star_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/start_yelow" />
+            android:src="@drawable/start_yelow"
+            android:contentDescription="@string/star_3_description" />
 
         <ImageView
             android:id="@+id/star_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/start_yelow" />
+            android:src="@drawable/start_yelow"
+            android:contentDescription="@string/star_4_description" />
 
         <ImageView
             android:id="@+id/star_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/start_yelow" />
+            android:src="@drawable/start_yelow"
+            android:contentDescription="@string/star_5_description" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,15 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FavoritesFragment">
+    android:layout_height="match_parent">
 
     <!-- Mensaje de "No tienes Favoritos guardados" -->
     <TextView
         android:id="@+id/textViewNoFavorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No tienes Favoritos guardados"
+        android:text="@string/no_favorites_saved"
         android:textSize="18sp"
         android:textColor="@android:color/black"
         android:visibility="gone"

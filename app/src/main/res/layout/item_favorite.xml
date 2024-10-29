@@ -16,8 +16,8 @@
             android:id="@+id/imageViewCover"
             android:layout_width="match_parent"
             android:layout_height="178dp"
-            android:scaleType="centerCrop" />
-
+            android:scaleType="centerCrop"
+            android:contentDescription="@null" />
         <!-- Título en negrita y color negro -->
         <TextView
             android:id="@+id/textViewTitle"

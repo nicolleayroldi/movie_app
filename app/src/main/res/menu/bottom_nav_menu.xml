@@ -5,11 +5,11 @@
         android:id="@+id/navigation_peliculas"
         android:checkable="true"
         android:icon="@drawable/movie"
-        android:title="Películas" />
+        android:title="@string/nav_peliculas" />
 
     <item
         android:id="@+id/navigation_favoritos"
         android:checkable="true"
         android:icon="@drawable/star"
-        android:title="Favoritos" />
+        android:title="@string/nav_favoritos" />
 </menu>

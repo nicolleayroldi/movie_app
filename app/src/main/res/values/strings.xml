@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">xd</string>
     <string name="title_activity_movie_detail">MovieDetailActivity</string>
+    <string name="nav_peliculas">Películas</string>
+    <string name="nav_favoritos">Favoritos</string>
+    <string name="no_results_found">No se encontraron resultados para: %1$s</string>
+    <string name="no_favorites_saved">No tienes Favoritos guardados</string>
+    <string name="error_loading_movies">Error loading movies</string>
+    <string name="network_error">Network error occurred</string>
+    <string name="movie_poster_description">Movie poster</string>
+    <string name="release_date_label">Fecha de lanzamiento:</string>
+    <string name="star_1_description">Star 1 rating</string>
+    <string name="star_2_description">Star 2 rating</string>
+    <string name="star_3_description">Star 3 rating</string>
+    <string name="star_4_description">Star 4 rating</string>
+    <string name="star_5_description">Star 5 rating</string>
+    <string name="movie_genres">Géneros: Acción. Aventura</string>
+    <string name="favorite_button_description">Botón de favorito</string>
 </resources>
